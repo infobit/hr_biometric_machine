@@ -1,1 +1,1 @@
-import daily_attendance
+from . import daily_attendance

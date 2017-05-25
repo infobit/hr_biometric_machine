@@ -1,4 +1,4 @@
-from openerp.osv import fields, osv
+from openerp import api, models, fields, _
 from datetime import datetime , timedelta
 from zklib import zklib
 from openerp.tools.translate import _
@@ -6,26 +6,37 @@ import time
 from zklib import zkconst
 
 
-class hr_employee(osv.Model):
+class hr_employee(models.Model):
     _name = "hr.employee"
     _inherit = "hr.employee"
 
-    _columns = {
+    emp_code = fields.Char(string="Emp Code")
+    category = fields.Char(string="category")
+    """_columns = {
         'emp_code': fields.char("Emp Code"),
         'category': fields.char("category"),
-    }
+    }"""
 
 
-class biometric_machine(osv.Model):
+class biometric_machine(models.Model):
     _name= 'biometric.machine'
-    _columns = {
+
+    name = fields.Char("Machine IP")
+    ref_name = fields.Char("Location")
+    port = fields.Integer("Port Number")
+    address_id = fields.many2One("res.partner",'Working Address')
+    company_id = fields.many2One("res.company","Company Name")
+    atten_ids = fields.one2Many('biometric.data','mechine_id','Attendance')
+
+
+    """_columns = {
         'name' : fields.char("Machine IP"),
         'ref_name' : fields.char("Location"),
         'port': fields.integer("Port Number"),
         'address_id' : fields.many2one("res.partner",'Working Address'),
         'company_id': fields.many2one("res.company","Company Name"),
         'atten_ids' : fields.one2many('biometric.data','mechine_id','Attendance')
-    }
+    }"""
 
     def download_attendance(self, cr, uid, ids, context=None):
         machine_ip = self.browse(cr,uid,ids).name
@@ -37,7 +48,7 @@ class biometric_machine(osv.Model):
             zk.disableDevice()
             attendance = zk.getAttendance()
             hr_attendance =  self.pool.get("hr.attendance")
-            hr_employee = self.pool.get("hr.employee") 
+            hr_employee = self.pool.get("hr.employee")
             biometric_data = self.pool.get("biometric.data")
             if (attendance):
                 for lattendance in attendance:
@@ -72,11 +83,11 @@ class biometric_machine(osv.Model):
 
     #Dowload attendence data regularly
     def schedule_download(self, cr, uid, context=None):
-        
+
             scheduler_line_obj = self.pool.get('biometric.machine')
             scheduler_line_ids = self.pool.get('biometric.machine').search(cr, uid, [])
             for scheduler_line_id in scheduler_line_ids:
-                scheduler_line =scheduler_line_obj.browse(cr, uid,scheduler_line_id,context=None)   
+                scheduler_line =scheduler_line_obj.browse(cr, uid,scheduler_line_id,context=None)
                 try:
                     scheduler_line.download_attendance()
                 except:
@@ -99,11 +110,15 @@ class biometric_machine(osv.Model):
             raise osv.except_osv(_('Warning !'),_("Unable to connect, please check the parameters and network connections."))
 
 
-class biometric_data(osv.osv):
+class biometric_data(models.Model):
     _name = "biometric.data"
-    _columns = {
+    name = fields.Datetime(string='Date')
+    emp_code = fields.Char(string='Employee Code')
+    mechine_id = fields.many2one('biometric.machine','Mechine No')
+
+    """_columns = {
         'name' : fields.datetime('Date'),
         'emp_code' : fields.char('Employee Code'),
         'mechine_id' : fields.many2one('biometric.machine','Mechine No')
-    }
+    }"""
 

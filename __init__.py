@@ -1,3 +1,3 @@
-import biometric_machine
+import models
 import report
 import wizard
