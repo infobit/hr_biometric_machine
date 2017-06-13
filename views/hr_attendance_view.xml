@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="attendance_lector_form" model="ir.ui.view">
+            <field name="name">hr.attendance.lector.form</field>
+            <field name="model">hr.attendance</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form"/>
+            <field name="arch" type="xml">
+		 <field name="action_desc" position="after">
+		    <button name="updateAttendance" string="Update attendance" type="object" class="oe_highlight"/>
+                 </field>
+
+            </field>
+       </record>
+    </data>
+</openerp>

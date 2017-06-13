@@ -6,38 +6,15 @@ import time
 from zklib import zkconst
 
 
-class hr_employee(models.Model):
-    _name = "hr.employee"
-    _inherit = "hr.employee"
-
-    emp_code = fields.Char(string="Emp Code")
-    category = fields.Char(string="category")
-    """_columns = {
-        'emp_code': fields.char("Emp Code"),
-        'category': fields.char("category"),
-    }"""
-
-
 class biometric_machine(models.Model):
     _name= 'biometric.machine'
 
     name = fields.Char("Machine IP")
     ref_name = fields.Char("Location")
     port = fields.Integer("Port Number")
-    address_id = fields.many2One("res.partner",'Working Address')
-    company_id = fields.many2One("res.company","Company Name")
-    atten_ids = fields.one2Many('biometric.data','mechine_id','Attendance')
-
-
-    """_columns = {
-        'name' : fields.char("Machine IP"),
-        'ref_name' : fields.char("Location"),
-        'port': fields.integer("Port Number"),
-        'address_id' : fields.many2one("res.partner",'Working Address'),
-        'company_id': fields.many2one("res.company","Company Name"),
-        'atten_ids' : fields.one2many('biometric.data','mechine_id','Attendance')
-    }"""
-
+    address_id = fields.Many2one("res.partner",'Working Address')
+    company_id = fields.Many2one("res.company","Company Name")
+    atten_ids = fields.One2many('biometric.data','mechine_id','Attendance')
     def download_attendance(self, cr, uid, ids, context=None):
         machine_ip = self.browse(cr,uid,ids).name
         port = self.browse(cr,uid,ids).port
@@ -46,13 +23,13 @@ class biometric_machine(models.Model):
         if res == True:
             zk.enableDevice()
             zk.disableDevice()
-            attendance = zk.getAttendance()
+            attendance = zk.getsAtt(machine_ip)
             hr_attendance =  self.pool.get("hr.attendance")
             hr_employee = self.pool.get("hr.employee")
             biometric_data = self.pool.get("biometric.data")
             if (attendance):
                 for lattendance in attendance:
-                    time_att = str(lattendance[2].date()) + ' ' +str(lattendance[2].time())
+                    """time_att = str(lattendance[2].date()) + ' ' +str(lattendance[2].time())
                     atten_time1 = datetime.strptime(str(time_att), '%Y-%m-%d %H:%M:%S')
                     atten_time = atten_time1 - timedelta(hours=5,minutes=30)
                     atten_time = datetime.strftime(atten_time,'%Y-%m-%d %H:%M:%S')
@@ -74,7 +51,10 @@ class biometric_machine(models.Model):
                             print a
                     except Exception,e:
                         pass
-                        print "exception..Attendance creation======", e.args
+                        print "exception..Attendance creation======", e.args"""
+
+	            a = biometric_data.create(cr,uid,{'name':lattendance[1],'emp_code':lattendance[0],'mechine_id':ids[0],'state':'pending'})
+	    zk.clearAttendance()
             zk.enableDevice()
             zk.disconnect()
             return True
@@ -83,7 +63,6 @@ class biometric_machine(models.Model):
 
     #Dowload attendence data regularly
     def schedule_download(self, cr, uid, context=None):
-
             scheduler_line_obj = self.pool.get('biometric.machine')
             scheduler_line_ids = self.pool.get('biometric.machine').search(cr, uid, [])
             for scheduler_line_id in scheduler_line_ids:
@@ -114,11 +93,5 @@ class biometric_data(models.Model):
     _name = "biometric.data"
     name = fields.Datetime(string='Date')
     emp_code = fields.Char(string='Employee Code')
-    mechine_id = fields.many2one('biometric.machine','Mechine No')
-
-    """_columns = {
-        'name' : fields.datetime('Date'),
-        'emp_code' : fields.char('Employee Code'),
-        'mechine_id' : fields.many2one('biometric.machine','Mechine No')
-    }"""
-
+    mechine_id = fields.Many2one('biometric.machine','Mechine No')
+    state = fields.Selection([('pending','Pending'),('count','Count')])

@@ -68,7 +68,7 @@
     <menuitem id="id_add_bio_machine_new" parent="id_add_bio_machine"  name="Attendance Machine" action="open_view_attendance_machine" />	
 	
 	
-		<record id="view_custom_employee_form" model="ir.ui.view">
+	<!--<record id="view_custom_employee_form" model="ir.ui.view">
             <field name="name">hr.employee.form</field>
             <field name="model">hr.employee</field>
             <field eval="47" name="priority"/>
@@ -87,7 +87,7 @@
                     </div>
                 </xpath>
             </field>
-        </record>
+        </record>-->
 	
         
      </data>
