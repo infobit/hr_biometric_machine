@@ -57,9 +57,6 @@
                 <field name="context">{'search_default_year':1,'search_default_month':1,'search_default_User':1,'group_by_no_leaf':1,'group_by':[]}</field>
                 <field name="help">This report performs analysis on your quotations and sales orders. Analysis check your sales revenues and sort it by different group criteria (salesman, partner, product, etc.) Use this report to perform analysis on sales not having invoiced yet. If you want to analyse your turnover, you should use the Invoice Analysis report in the Accounting application.</field> -->
             </record>
-
-           
-            
             <menuitem action="action_daily_attendance_report_all" id="menu_report_atten_daily_all" parent="id_add_bio_machine" sequence="10" name="Attendance IN/OUT"/>
             </data>
 </openerp>

@@ -4,7 +4,7 @@
   <data>
     <record id="configure_schedule_wizard" model="ir.ui.view">
       <field name="name">configure.schedule.wizard</field>
-      <field name="model">configure.attendence</field>
+      <field name="model">configure.attendance</field>
       <field name="arch" type="xml">
         <form string="Configuration">
           
@@ -26,7 +26,7 @@
     <record id="open_configure_schedule_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">configure.attendence</field>
+        <field name="res_model">configure.attendance</field>
         <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>

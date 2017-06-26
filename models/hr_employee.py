@@ -5,13 +5,14 @@ from zklib import *
 class hr_employee(models.Model):
 	_name = "hr.employee"
 	_inherit = "hr.employee"
-  
+
 	emp_code = fields.Char(string="Emp Code")
 	emp_rfid = fields.Char(string="RFID")
 	emp_psw = fields.Char(string="Password")
 	category = fields.Selection(
 		[('0000','User'),
-		 ('0001','Admin')])
+		 ('0001','Admin')],
+		)
 
 	@api.one
 	def saveUser(self):
@@ -20,8 +21,8 @@ class hr_employee(models.Model):
 		if ret:
 			zk.disableDevice()
 			zk.setUser(
-				uid=self.id, 
-				userid=str(self.id), 
+				uid=self.id,
+				userid=str(self.id),
 				name=self.name,
 				password=str(self.emp_psw),
 				role=zkconst.LEVEL_ADMIN)
