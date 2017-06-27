@@ -5,6 +5,9 @@ from openerp.tools.translate import _
 import time
 from zklib import zkconst
 
+import pytz, datetime
+from pytz import timezone
+from datetime import datetime
 
 class biometric_machine(models.Model):
     _name= 'biometric.machine'
@@ -19,23 +22,22 @@ class biometric_machine(models.Model):
     def download_attendance(self):
 	machine_ip = self.name
 	port = self.port
-        """machine_ip = self.browse(self._cr,self._uid,ids).name
-        port = self.browse(self._cr,self._uid,ids).port"""
         zk = zklib.ZKLib(machine_ip, int(port))
         res = zk.connect()
+	local = pytz.timezone ("Europe/Madrid")
+
         if res == True:
             zk.enableDevice()
             zk.disableDevice()
             attendance = zk.getsAtt(machine_ip)
 
-            hr_attendance =  self.pool.get("hr.attendance")
-            hr_employee = self.pool.get("hr.employee")
-            """biometric_data = self.pool.get("biometric.data")"""
             biometric_data = self.env['biometric.data']
             if (attendance):
                 for lattendance in attendance:
-		    #raise Warning((lattendance))
-	            a = biometric_data.create({'name':lattendance[1],'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
+		    naive = local.localize(lattendance[1],is_dst=None)
+
+
+	            a = biometric_data.create({'name':naive.astimezone(timezone('UTC')) ,'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
 
 	    zk.clearAttendance()
             zk.enableDevice()
