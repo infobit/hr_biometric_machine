@@ -1,0 +1,283 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_biometric_machine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 07:38+0000\n"
+"PO-Revision-Date: 2017-09-28 07:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_biometric_machine
+#: selection:hr.employee,category:0
+msgid "Admin"
+msgstr "Admin"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+msgid "Are you sure you want to do this?"
+msgstr "Estás seguro que quieres hacer esto?"
+
+#. module: hr_biometric_machine
+#: model:ir.model,name:hr_biometric_machine.model_hr_attendance
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_atten_ids
+msgid "Attendance"
+msgstr "Servicio"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.menu,name:hr_biometric_machine.id_add_bio_machine_new
+msgid "Attendance Machine"
+msgstr "Máquina de asistencias"
+
+#. module: hr_biometric_machine
+#: model:ir.actions.act_window,name:hr_biometric_machine.open_view_attendance_machine
+msgid "Attendances"
+msgstr "Asistencias"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+msgid "Attendances Line"
+msgstr "Linea de asistencias"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.menu,name:hr_biometric_machine.id_add_bio_machine
+msgid "Biometric Device Manager"
+msgstr "Control Máquina asistencias"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_tree
+msgid "Biometric Machine"
+msgstr "Máquina asistencias"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_hr_employee_category
+msgid "Category"
+msgstr "Categoría"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+msgid "Clear Data"
+msgstr "Borrar datos"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_company_id
+msgid "Company Name"
+msgstr "Nombre de la compañía"
+
+#. module: hr_biometric_machine
+#: selection:biometric.data,state:0
+msgid "Count"
+msgstr "contado"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_create_uid
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_create_uid
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_create_date
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_create_date
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_name
+msgid "Date"
+msgstr "Fecha"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendance,interval_type:0
+msgid "Days"
+msgstr "Días"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_display_name
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_display_name
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+msgid "Download Data"
+msgstr "Descargar Datos"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_hr_employee_emp_code
+msgid "Emp Code"
+msgstr "Codigo empleado"
+
+#. module: hr_biometric_machine
+#: model:ir.model,name:hr_biometric_machine.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_emp_code
+msgid "Employee Code"
+msgstr "Codigo empleado"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendance,interval_type:0
+msgid "Hours"
+msgstr "Horas"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_id
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_id
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_interval_number
+msgid "Interval Number"
+msgstr "Duración intervalo"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_interval_type
+msgid "Interval Unit"
+msgstr "Unidad de intervalo"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data___last_update
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine___last_update
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_write_uid
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_write_uid
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_write_date
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_write_date
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_configure_attendance_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_ref_name
+msgid "Location"
+msgstr "Localización"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_name
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+msgid "Machine IP"
+msgstr "IP Máquina"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_mechine_id
+msgid "Mechine No"
+msgstr "No Máquina"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendance,interval_type:0
+msgid "Minutes"
+msgstr "Minutos"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendance,interval_type:0
+msgid "Months"
+msgstr "Meses"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_hr_employee_emp_psw
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: hr_biometric_machine
+#: selection:biometric.data,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_port
+msgid "Port Number"
+msgstr "Puerto"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_hr_employee_emp_rfid
+msgid "RFID"
+msgstr "RFID"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.view,arch_db:hr_biometric_machine.view_biometric_machine_form
+msgid "Raw Attendances"
+msgstr "Raw Attendances"
+
+#. module: hr_biometric_machine
+#: selection:biometric.data,state:0
+msgid "Repeated"
+msgstr "Repetido"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_data_state
+msgid "State"
+msgstr "Estado"
+
+#. module: hr_biometric_machine
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:57
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:91
+#, python-format
+msgid "Unable to connect, please check the parameters and network connections."
+msgstr "Imposible conectar, porfavor comprobar los parametros y la red"
+
+#. module: hr_biometric_machine
+#: selection:hr.employee,category:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: hr_biometric_machine
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:57
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:91
+#, python-format
+msgid "Warning !"
+msgstr "Atención !"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendance,interval_type:0
+msgid "Weeks"
+msgstr "Semanas"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendance,interval_type:0
+msgid "Work Days"
+msgstr "Días Laborables"
+
+#. module: hr_biometric_machine
+#: model:ir.model.fields,field_description:hr_biometric_machine.field_biometric_machine_address_id
+msgid "Working Address"
+msgstr "Dirección de trabajo"
+
+#. module: hr_biometric_machine
+#: model:ir.model,name:hr_biometric_machine.model_biometric_data
+msgid "biometric.data"
+msgstr "biometric.data"
+
+#. module: hr_biometric_machine
+#: model:ir.model,name:hr_biometric_machine.model_biometric_machine
+msgid "biometric.machine"
+msgstr "biometric.machine"
+
+#. module: hr_biometric_machine
+#: model:ir.model,name:hr_biometric_machine.model_configure_attendance
+msgid "configure.attendance"
+msgstr "configure.attendance"
+

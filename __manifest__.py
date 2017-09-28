@@ -13,7 +13,7 @@
         #"views/hr_attendance_view.xml",
         #"report/daily_attendance_view.xml",
         "schedule.xml",
-        "wizard/schedule_wizard.xml",
+        #"wizard/schedule_wizard.xml",
     ],
     "active": False,
     "installable": True

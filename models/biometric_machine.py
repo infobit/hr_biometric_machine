@@ -49,7 +49,7 @@ class biometric_machine(models.Model):
 	            a = biometric_data.create({'name':naive.astimezone(timezone('UTC')) ,'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
 		    _logger.debug('FICHADA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
 
-	    zk.clearAttendance()
+	    #zk.clearAttendance()
             zk.enableDevice()
             zk.disconnect()
             return True
@@ -96,4 +96,4 @@ class biometric_data(models.Model):
     name = fields.Datetime(string='Date')
     emp_code = fields.Char(string='Employee Code')
     mechine_id = fields.Many2one('biometric.machine','Mechine No')
-    state = fields.Selection([('pending','Pending'),('count','Count')])
+    state = fields.Selection([('pending','Pending'),('count','Count'),('repeated','Repeated')])

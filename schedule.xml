@@ -7,7 +7,7 @@
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>
             <field name="numbercall">-1</field>
-            <field eval="True" name="doall"/>
+            <field eval="False" name="doall"/>
             <field eval="'biometric.machine'" name="model"/>
             <field eval="'schedule_download'" name="function"/>
         </record>

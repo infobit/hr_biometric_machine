@@ -30,6 +30,7 @@
      						<tree string="Raw Attendances" >
  	    						<field name="emp_code" readonly="1"/>
  	    						<field name="name" readonly="1"/>
+ 	    						<field name="state" readonly="1"/>
      						</tree>
      					</field>
      				</page>
