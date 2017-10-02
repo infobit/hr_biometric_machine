@@ -46,8 +46,12 @@ class biometric_machine(models.Model):
             if (attendance):
                 for lattendance in attendance:
 		    naive = local.localize(lattendance[1],is_dst=None)
-	            a = biometric_data.create({'name':naive.astimezone(timezone('UTC')) ,'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
-		    _logger.debug('FICHADA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
+		    exist=biometric_data.search([
+			('name','=',str(naive.astimezone(timezone('UTC')))),
+			('emp_code','=',lattendance[0])])
+		    if not exist:
+		            a = biometric_data.create({'name':naive.astimezone(timezone('UTC')) ,'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
+			    _logger.debug('FICHADA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
 
 	    #zk.clearAttendance()
             zk.enableDevice()

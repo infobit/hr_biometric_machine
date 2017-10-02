@@ -39,8 +39,7 @@ class hr_attendance(models.Model):
 			    else:
 				if not att.state == 'count':
 					att.state = 'repeated'
-				else:
-					continue
+				
 
 
 	#Dowload attendence data regularly
