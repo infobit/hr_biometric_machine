@@ -14,7 +14,7 @@ class hr_employee(models.Model):
 		 ('0001','Admin')],
 		)
 
-	@api.one
+	"""@api.one
 	def saveUser(self):
 		zk = zklib.ZKLib("192.168.188.202", 4370)
 		ret = zk.connect()
@@ -27,6 +27,6 @@ class hr_employee(models.Model):
 				password=str(self.emp_psw),
 				role=zkconst.LEVEL_ADMIN)
 			zk.enableDevice()
-		zk.clearAdmin()
+		zk.clearAdmin()"""
 
 
