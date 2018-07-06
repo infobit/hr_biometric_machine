@@ -21,6 +21,7 @@ class biometric_machine(models.Model):
     name = fields.Char("Machine IP")
     ref_name = fields.Char("Location")
     port = fields.Char("Port Number")
+    port_web = fields.Char("Port Number", default="80")
     address_id = fields.Many2one("res.partner",'Working Address')
     company_id = fields.Many2one("res.company","Company Name")
     atten_ids = fields.One2many('biometric.data','mechine_id','Attendance')
@@ -28,8 +29,9 @@ class biometric_machine(models.Model):
     def download_attendance(self):
 	machine_ip = self.name
 	port = self.port
+	port_web = self.port_web
 
-	_logger.debug('CONEXION MAQUINA %s : %s',machine_ip,port)
+	_logger.error('CONEXION MAQUINA %s : %s',machine_ip,port)
 
         zk = zklib.ZKLib(machine_ip, int(port))
         res = zk.connect()
@@ -38,20 +40,22 @@ class biometric_machine(models.Model):
         if res == True:
             zk.enableDevice()
             zk.disableDevice()
-            attendance = zk.getsAtt(machine_ip)
+            attendance = zk.getsAtt(machine_ip+":"+port_web)
 
             biometric_data = self.env['biometric.data']
- 	    _logger.debug('FASISTENCIAS %s',attendance)
+ 	    _logger.error('FASISTENCIAS %s',attendance)
 
             if (attendance):
                 for lattendance in attendance:
 		    naive = local.localize(lattendance[1],is_dst=None)
 		    exist=biometric_data.search([
 			('name','=',str(naive.astimezone(timezone('UTC')))),
-			('emp_code','=',lattendance[0])])
+			('emp_code','=',lattendance[0]),
+			('mechine_id','=',self.id)])
+		    _logger.error('FICHADA LEIDA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
 		    if not exist:
 		            a = biometric_data.create({'name':naive.astimezone(timezone('UTC')) ,'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
-			    _logger.debug('FICHADA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
+			    _logger.debug('FICHADA GUARDADA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
 
 	    #zk.clearAttendance()
             zk.enableDevice()

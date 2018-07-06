@@ -199,6 +199,6 @@ class ZKLib:
         return zkRegevent(self)
 
     def getsAtt(self, ip):
-        return zksoapAtt(self)
+        return zksoapAtt(self,ip)
 
 

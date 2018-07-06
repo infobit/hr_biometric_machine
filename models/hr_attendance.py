@@ -11,7 +11,7 @@ class hr_attendance(models.Model):
 
 
 	def updateAttendance(self):
-            att_ids = self.env['biometric.data'].search([('state','=','pending')])
+            att_ids = self.env['biometric.data'].search([('state','=','pending')],order='name')
 	    #raise Warning((att_ids))
 	    #scheduler_line_obj = self.env['biometric.machine']
             #scheduler_lines = self.env['biometric.machine'].search([])
