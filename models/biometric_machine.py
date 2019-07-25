@@ -5,6 +5,9 @@ from openerp.tools.translate import _
 import time
 from zklib import zkconst
 
+import pytz, datetime
+from pytz import timezone
+from datetime import datetime
 
 class biometric_machine(models.Model):
     _name= 'biometric.machine'
@@ -20,6 +23,9 @@ class biometric_machine(models.Model):
         port = self.browse(cr,uid,ids).port
         zk = zklib.ZKLib(machine_ip, int(port))
         res = zk.connect()
+
+	local = pytz.timezone ("Europe/Madrid")
+
         if res == True:
             zk.enableDevice()
             zk.disableDevice()
@@ -29,6 +35,7 @@ class biometric_machine(models.Model):
             biometric_data = self.pool.get("biometric.data")
             if (attendance):
                 for lattendance in attendance:
+		    naive = local.localize(lattendance[1],is_dst=None)
                     """time_att = str(lattendance[2].date()) + ' ' +str(lattendance[2].time())
                     atten_time1 = datetime.strptime(str(time_att), '%Y-%m-%d %H:%M:%S')
                     atten_time = atten_time1 - timedelta(hours=5,minutes=30)
@@ -53,7 +60,8 @@ class biometric_machine(models.Model):
                         pass
                         print "exception..Attendance creation======", e.args"""
 
-	            a = biometric_data.create(cr,uid,{'name':lattendance[1],'emp_code':lattendance[0],'mechine_id':ids[0],'state':'pending'})
+	            #a = biometric_data.create(cr,uid,{'name':lattendance[1],'emp_code':lattendance[0],'mechine_id':ids[0],'state':'pending'})
+	            a = biometric_data.create(cr,uid,{'name':naive.astimezone(timezone('UTC')),'emp_code':lattendance[0],'mechine_id':ids[0],'state':'pending'})
 	    zk.clearAttendance()
             zk.enableDevice()
             zk.disconnect()
