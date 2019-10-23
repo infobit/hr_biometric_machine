@@ -9,10 +9,10 @@ import datetime
 
 
 
-def zksoapAtt(self):
+def zksoapAtt(self,ip):
 
 	data = []
-	url = "http://" + str(self.ip) + "/iWsService"
+	url = "http://" + str(ip) + "/iWsService"
 	headers = {'content-type': 'text/xml'}
 	body = """ <GetAttLog><ArgComKey
 	xsi:type=\"xsd:integer\">0</ArgComKey><Arg><PIN

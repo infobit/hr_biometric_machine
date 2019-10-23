@@ -1,4 +1,6 @@
 from openerp import api, models, fields, _
+from openerp.exceptions import except_orm, Warning, RedirectWarning
+
 from datetime import datetime , timedelta
 from zklib import zklib
 from openerp.tools.translate import _
@@ -18,18 +20,22 @@ class biometric_machine(models.Model):
     address_id = fields.Many2one("res.partner",'Working Address')
     company_id = fields.Many2one("res.company","Company Name")
     atten_ids = fields.One2many('biometric.data','mechine_id','Attendance')
+    port_web = fields.Char("Port Number", default="80")
+
+
     def download_attendance(self, cr, uid, ids, context=None):
         machine_ip = self.browse(cr,uid,ids).name
         port = self.browse(cr,uid,ids).port
+	port_web = self.browse(cr,uid,ids).port_web
         zk = zklib.ZKLib(machine_ip, int(port))
         res = zk.connect()
 
 	local = pytz.timezone ("Europe/Madrid")
-
+	#raise Warning(('Warning !'),("%s \n%s \n%s" %(machine_ip,port,port_web)))
         if res == True:
             zk.enableDevice()
             zk.disableDevice()
-            attendance = zk.getsAtt(machine_ip)
+            attendance = zk.getsAtt(machine_ip+":"+port_web)
             hr_attendance =  self.pool.get("hr.attendance")
             hr_employee = self.pool.get("hr.employee")
             biometric_data = self.pool.get("biometric.data")
@@ -67,7 +73,7 @@ class biometric_machine(models.Model):
             zk.disconnect()
             return True
         else:
-            raise osv.except_osv(_('Warning !'),_("Unable to connect, please check the parameters and network connections."))
+            raise Warning(_('Warning !'),_("Unable to connect, please check the parameters and network connections."))
 
     #Dowload attendence data regularly
     def schedule_download(self, cr, uid, context=None):
@@ -78,7 +84,7 @@ class biometric_machine(models.Model):
                 try:
                     scheduler_line.download_attendance()
                 except:
-                    raise osv.except_osv(('Warning !'),("Machine with %s is not connected" %(scheduler_line.name)))
+                    raise Warning(('Warning !'),("Machine with %s is not connected" %(scheduler_line.name)))
 
 
     def clear_attendance(self, cr, uid, ids, context=None):
@@ -94,7 +100,7 @@ class biometric_machine(models.Model):
             zk.disconnect()
             return True
         else:
-            raise osv.except_osv(_('Warning !'),_("Unable to connect, please check the parameters and network connections."))
+            raise Warning(_('Warning !'),_("Unable to connect, please check the parameters and network connections."))
 
 
 class biometric_data(models.Model):
