@@ -10,6 +10,7 @@
 		<notebook>
                     <page string="Zkteko" position="after">
                     <group string="zkteko">
+                        <field name="turn_day"/>
                         <field name="category"/>
                         <field name="emp_code"/>
                         <field name="emp_rfid"/>

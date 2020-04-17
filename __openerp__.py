@@ -5,7 +5,7 @@
     "category" : "Custom",
     "website" : "gauravsahu.odoo.com",
     "description": "A Module for Biometric Device Integration",
-    "depends" : ["base","hr"],
+    "depends" : ["base","hr_attendance"],
     "init_xml" : [],
     "data" : [
         "views/biometric_machine_view.xml",

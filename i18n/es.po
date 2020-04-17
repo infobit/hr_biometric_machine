@@ -1,0 +1,298 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_biometric_machine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 09:27+0000\n"
+"PO-Revision-Date: 2020-04-17 09:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_biometric_machine
+#: selection:hr.employee,category:0
+msgid "Admin"
+msgstr "Admin"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+msgid "Are you sure you want to do this?"
+msgstr "¿Estas seguro de que quieres hacer esto?"
+
+#. module: hr_biometric_machine
+#: field:biometric.machine,atten_ids:0
+#: model:ir.model,name:hr_biometric_machine.model_hr_attendance
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.menu,name:hr_biometric_machine.id_add_bio_machine_new
+msgid "Attendance Machine"
+msgstr "Fichador"
+
+#. module: hr_biometric_machine
+#: model:ir.actions.act_window,name:hr_biometric_machine.open_view_attendance_machine
+msgid "Attendances"
+msgstr "Servicios"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+msgid "Attendances Line"
+msgstr "Lineas de asistencias"
+
+#. module: hr_biometric_machine
+#: model:ir.ui.menu,name:hr_biometric_machine.id_add_bio_machine
+msgid "Biometric Device Manager"
+msgstr "Gestion Fichador"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_tree
+msgid "Biometric Machine"
+msgstr "Fichador"
+
+#. module: hr_biometric_machine
+#: view:configure.attendence:hr_biometric_machine.configure_schedule_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_biometric_machine
+#: field:hr.employee,category:0
+msgid "Category"
+msgstr "Categoria"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+msgid "Clear Data"
+msgstr "Borrar Datos"
+
+#. module: hr_biometric_machine
+#: field:biometric.machine,company_id:0
+msgid "Company Name"
+msgstr "Nombre compañia"
+
+#. module: hr_biometric_machine
+#: view:configure.attendence:hr_biometric_machine.configure_schedule_wizard
+#: model:ir.actions.act_window,name:hr_biometric_machine.open_configure_schedule_wizard
+#: model:ir.ui.menu,name:hr_biometric_machine.configure_schedule_menu
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: hr_biometric_machine
+#: selection:biometric.data,state:0
+msgid "Count"
+msgstr "Procesado"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,create_uid:0
+#: field:biometric.machine,create_uid:0
+#: field:configure.attendence,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,create_date:0
+#: field:biometric.machine,create_date:0
+#: field:configure.attendence,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,name:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendence,interval_type:0
+msgid "Days"
+msgstr "Dias"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+msgid "Download Data"
+msgstr "Descargar Datos"
+
+#. module: hr_biometric_machine
+#: field:hr.employee,emp_code:0
+msgid "Emp Code"
+msgstr "Código Empleado"
+
+#. module: hr_biometric_machine
+#: model:ir.model,name:hr_biometric_machine.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,emp_code:0
+msgid "Employee Code"
+msgstr "Código Empleado"
+
+#. module: hr_biometric_machine
+#: constraint:hr.attendance:0
+msgid "Error ! Sign in (resp. Sign out) must follow Sign out (resp. Sign in)"
+msgstr "¡Error! Una entrada debe seguir a un registro de salida."
+
+#. module: hr_biometric_machine
+#: selection:configure.attendence,interval_type:0
+msgid "Hours"
+msgstr "Horas"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,id:0
+#: field:biometric.machine,id:0
+#: field:configure.attendence,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_biometric_machine
+#: field:configure.attendence,interval_number:0
+msgid "Interval Number"
+msgstr "Número de intervalos"
+
+#. module: hr_biometric_machine
+#: field:configure.attendence,interval_type:0
+msgid "Interval Unit"
+msgstr "Unidad de intervalos"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,write_uid:0
+#: field:biometric.machine,write_uid:0
+#: field:configure.attendence,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,write_date:0
+#: field:biometric.machine,write_date:0
+#: field:configure.attendence,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: hr_biometric_machine
+#: field:biometric.machine,ref_name:0
+msgid "Location"
+msgstr "Localización"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+#: field:biometric.machine,name:0
+msgid "Machine IP"
+msgstr "IP Fichador"
+
+#. module: hr_biometric_machine
+#: help:hr.employee,turn_day:0
+msgid "Marck if employee end turn in the same day"
+msgstr "Marcar si empleado termina el turno el mismo día"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,mechine_id:0
+msgid "Mechine No"
+msgstr "Número Fichador"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendence,interval_type:0
+msgid "Minutes"
+msgstr "Minutos"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendence,interval_type:0
+msgid "Months"
+msgstr "Meses"
+
+#. module: hr_biometric_machine
+#: field:hr.employee,emp_psw:0
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: hr_biometric_machine
+#: selection:biometric.data,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: hr_biometric_machine
+#: field:biometric.machine,port:0
+#: field:biometric.machine,port_web:0
+msgid "Port Number"
+msgstr "Puerto"
+
+#. module: hr_biometric_machine
+#: field:hr.employee,emp_rfid:0
+msgid "RFID"
+msgstr "RFID"
+
+#. module: hr_biometric_machine
+#: view:biometric.machine:hr_biometric_machine.view_biometric_machine_form
+msgid "Raw Attendances"
+msgstr "Raw Asistencias"
+
+#. module: hr_biometric_machine
+#: view:configure.attendence:hr_biometric_machine.configure_schedule_wizard
+msgid "Save"
+msgstr "Guardar"
+
+#. module: hr_biometric_machine
+#: field:biometric.data,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: hr_biometric_machine
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:76
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:103
+#, python-format
+msgid "Unable to connect, please check the parameters and network connections."
+msgstr "No se puede conectar, compruebe los parametros de red del fichador"
+
+#. module: hr_biometric_machine
+#: selection:hr.employee,category:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: hr_biometric_machine
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:76
+#: code:addons/hr_biometric_machine/models/biometric_machine.py:103
+#, python-format
+msgid "Warning !"
+msgstr "Peligro !"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendence,interval_type:0
+msgid "Weeks"
+msgstr "Semanas"
+
+#. module: hr_biometric_machine
+#: selection:configure.attendence,interval_type:0
+msgid "Work Days"
+msgstr "Dias laborables"
+
+#. module: hr_biometric_machine
+#: field:biometric.machine,address_id:0
+msgid "Working Address"
+msgstr "Dirección de trabajo"
+
+#. module: hr_biometric_machine
+#: view:hr.employee:hr_biometric_machine.employee_lector_form
+msgid "Zkteko"
+msgstr "Zkteko"
+
+#. module: hr_biometric_machine
+#: field:hr.employee,turn_day:0
+msgid "daily turns"
+msgstr "Turnos diarios"
+
+#. module: hr_biometric_machine
+#: view:configure.attendence:hr_biometric_machine.configure_schedule_wizard
+msgid "or"
+msgstr "o"
+
+#. module: hr_biometric_machine
+#: view:hr.employee:hr_biometric_machine.employee_lector_form
+msgid "zkteko"
+msgstr "zkteko"
+
+
