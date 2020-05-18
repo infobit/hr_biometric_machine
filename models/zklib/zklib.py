@@ -8,32 +8,32 @@ import time
 from struct import pack, unpack
 from datetime import datetime, date
 
-from zkconnect import *
-from zkversion import *
-from zkos import *
-from zkextendfmt import *
-from zkextendoplog import *
-from zkplatform import *
-from zkworkcode import *
-from zkssr import *
-from zkpin import *
-from zkface import *
-from zkserialnumber import *
-from zkdevice import *
-from zkuser import *
-from zkattendance import *
-from zktime import *
-from zkprepare import *
-from zkrefreshdata import *
-from zkfreedata import *
-from zkrestart import *
-from zkAtt import *
-from zkDBRrq import *
-from zkRegevent import *
-from zksoapAtt import *
+from .zkconnect import *
+from .zkversion import *
+from .zkos import *
+from .zkextendfmt import *
+from .zkextendoplog import *
+from .zkplatform import *
+from .zkworkcode import *
+from .zkssr import *
+from .zkpin import *
+from .zkface import *
+from .zkserialnumber import *
+from .zkdevice import *
+from .zkuser import *
+from .zkattendance import *
+from .zktime import *
+from .zkprepare import *
+from .zkrefreshdata import *
+from .zkfreedata import *
+from .zkrestart import *
+from .zkAtt import *
+from .zkDBRrq import *
+from .zkRegevent import *
+from .zksoapAtt import *
 
 class ZKLib:
-    
+
     def __init__(self, ip, port):
         self.address = (ip, port)
         self.ip = ip

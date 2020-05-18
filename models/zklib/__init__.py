@@ -1,26 +1,26 @@
-import zkattendance
-import zkconst
-import zkdevice
-import zkconnect
-import zkextendfmt
-import zkextendoplog
-import zkface
-import zklib
-import zkos
-import zkpin
-import zkpin
-import zkplatform
-import zkserialnumber
-import zkssr
-import zktime
-import zkuser
-import zkversion
-import zkworkcode
-import zkprepare
-import zkrefreshdata
-import zkfreedata
-import zkrestart
-import zkAtt
-import zkDBRrq
-import zkRegevent
-import zksoapAtt
+from . import zkattendance
+from . import zkconst
+from . import zkdevice
+from . import zkconnect
+from . import zkextendfmt
+from . import zkextendoplog
+from . import zkface
+from . import zklib
+from . import zkos
+from . import zkpin
+from . import zkpin
+from . import zkplatform
+from . import zkserialnumber
+from . import zkssr
+from . import zktime
+from . import zkuser
+from . import zkversion
+from . import zkworkcode
+from . import zkprepare
+from . import zkrefreshdata
+from . import zkfreedata
+from . import zkrestart
+from . import zkAtt
+from . import zkDBRrq
+from . import zkRegevent
+from . import zksoapAtt

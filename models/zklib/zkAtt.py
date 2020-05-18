@@ -2,7 +2,7 @@ from struct import pack, unpack
 from datetime import datetime, date
 import sys
 
-from zkconst import *
+from .zkconst import *
 
 
 
@@ -185,13 +185,13 @@ def zkAtt(self):
 			
 				#acmOK(self)
 		if unpack('4H', data_recv[:8])[0] == CMD_ACK_OK:
-			print "CMD_ACK_OK"
+			print ("CMD_ACK_OK")
 				
 		
 			
 
-		print "length of att data", len(self.attendancedata)
-		print "length of atti data", len(self.attendancedata)
+		print ("length of att data", len(self.attendancedata))
+		print ("length of atti data", len(self.attendancedata))
 		#data_recv = self.zkclient.recvfrom(8)
 
 		for x in xrange(len(self.attendancedata)):
@@ -213,7 +213,7 @@ def zkAtt(self):
 
 		#test = getData(self)
 
-		print "len attendancedata", len(attendancedata)
+		print ("len attendancedata", len(attendancedata))
 					
 		while len(attendancedata):
 

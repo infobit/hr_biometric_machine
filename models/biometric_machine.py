@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 from openerp import api, models, fields, _
 from datetime import datetime , timedelta
-from zklib import zklib
 from openerp.tools.translate import _
-import time
-from zklib import zkconst
+
+from .zklib import zkconst
+from .zklib import zklib
 
 import pytz, datetime
 from pytz import timezone
 from datetime import datetime
 
 import logging
+import time
 
 _logger = logging.getLogger(__name__)
 
@@ -57,7 +58,7 @@ class biometric_machine(models.Model):
 						a = biometric_data.create({'name':naive.astimezone(timezone('UTC')) ,'emp_code':lattendance[0],'mechine_id':self.id,'state':'pending'})
 						_logger.debug('FICHADA GUARDADA %s : %s',lattendance[0],naive.astimezone(timezone('UTC')))
 
-			#zk.clearAttendance()
+			zk.clearAttendance()
 			zk.enableDevice()
 			zk.disconnect()
 			return True
@@ -66,7 +67,7 @@ class biometric_machine(models.Model):
 			_logger.debug('ERROR CONEXION MAQUINA %s : %s',machine_ip,port)
 		zk.enableDevice()
 		zk.disconnect()
-		 return False
+		return False
 
 
 	#Dowload attendence data regularly
@@ -74,13 +75,13 @@ class biometric_machine(models.Model):
 	def schedule_download(self):
 		scheduler_line_ids = self.env['biometric.machine'].search([])
 		_logger.debug('MAQUINA ENCONTRADA %s',scheduler_line_ids)
-			for scheduler_line_id in scheduler_line_ids:
-				scheduler_line = scheduler_line_id
-				_logger.debug('MAQUINA %s',scheduler_line)
-				try:
-					scheduler_line.download_attendance()
-				except:
-					raise Warning(('Warning !'),("Machine with %s is not connected" %(scheduler_line.name)))
+		for scheduler_line_id in scheduler_line_ids:
+			scheduler_line = scheduler_line_id
+			_logger.debug('MAQUINA %s',scheduler_line)
+			try:
+				scheduler_line.download_attendance()
+			except:
+				raise Warning(('Warning !'),("Machine with %s is not connected" %(scheduler_line.name)))
 
 
 	def clear_attendance(self):

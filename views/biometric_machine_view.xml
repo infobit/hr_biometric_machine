@@ -46,7 +46,7 @@
 		<field name="model">biometric.machine</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
-			<tree string="Biometric Machine" version="7.0">
+			<tree string="Biometric Machine">
 				<field name="name"/>
 				<field name="ref_name"/>
 				<field name="address_id"/>

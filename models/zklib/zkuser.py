@@ -1,7 +1,7 @@
 from struct import pack, unpack
 from datetime import datetime, date
 
-from zkconst import *
+from .zkconst import *
 
 def getSizeUser(self):
     """Checks a returned packet to see if it returned CMD_PREPARE_DATA,
@@ -32,7 +32,7 @@ def zksetuser(self, uid, userid, name, password, role):
         reply_id, command_string)
     self.zkclient.sendto(buf, self.address)
     #print buf
-    print buf.encode("hex")[15:]
+    print (buf.encode("hex")[15:])
     try:
         self.data_recv, addr = self.zkclient.recvfrom(1024)
         self.session_id = unpack('HHHH', self.data_recv[:8])[2]
@@ -73,42 +73,38 @@ def zkgetuser(self):
                     self.userdata[x] = self.userdata[x][8:]
             userdata = ''.join( self.userdata )     
             userdata = userdata[11:]
-
-	    userdata =  userdata.encode("hex")
-            while len(userdata) > 56:	
-		uid, role, password, name, x,userid,y = unpack('4s4s10s27ss6s5s', userdata.ljust(57)[:57] )
-		
-                #uid, role, password, name, userid = unpack( '2s2s8s28sx31s', userdata.ljust(72)[:72] )	
+            userdata =  userdata.encode("hex")
+            while len(userdata) > 56:
+                uid, role, password, name, x,userid,y = unpack('4s4s10s27ss6s5s', userdata.ljust(57)[:57])
+                #uid, role, password, name, userid = unpack( '2s2s8s28sx31s', userdata.ljust(72)[:72])
                 #uid = int( uid.encode("hex"), 16)
-		uid = int( uid, 16)
-		
+                uid = int( uid, 16)
+
                 # Clean up some messy characters from the user name
                 password = password.split('\x00', 1)[0]
                 password = unicode(password.strip('\x00|\x01\x10x'), errors='ignore')
-		p=''
-		for c in range(0,10,2):
-			if password[c] == '3':
-				#print password[c]
-				p = p+str(password[c+1])
-
+                p=''
+                for c in range(0,10,2):
+                   if password[c] == '3':
+                      #print password[c]
+                      p = p+str(password[c+1])
                 #uid = uid.split('\x00', 1)[0]
                 #userid = unicode(userid.strip('\x00|\x01\x10x'), errors='ignore')
                 userid = int( userid, 16)
                 name = name.split('\x00', 1)[0]
-                
+
                 if name.strip() == "":
                     name = uid
-                
+
                 #users[uid] = (userid, name, int( role.encode("hex"), 16 ), password)
                 users[uid] = (userid, name, int( role, 16 ), p)
-                
+
                 #print("%d, %s, %s, %s, %s" % (uid, userid, name, int( role.encode("hex"), 16 ), p))
                 userdata = userdata[56:]
-                
         return users
     except:
         return False
-    
+
 
 def zkclearuser(self):
     """Start a connection with the time clock"""
