@@ -13,6 +13,8 @@ class hr_employee(models.Model):
 		[('0000','User'),
 		 ('0001','Admin')],
 		)
+	turn_day = fields.Boolean(string="daily turns", help="Marck if employee end turn in the same day", default = True)
+
 
 	"""@api.one
 	def saveUser(self):

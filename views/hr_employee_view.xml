@@ -2,23 +2,22 @@
 <openerp>
     <data>
         <record id="employee_lector_form" model="ir.ui.view">
-            <field name="name">hr.employee.sii.form</field>
+            <field name="name">hr.employee.hr.machine.form</field>
             <field name="model">hr.employee</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-		<notebook>
-                    <page string="Zkteko" position="after">
-                    <group string="zkteko">
+		<xpath expr="//notebook" position="inside">
+                    <page string="Zkteko">
+                    <group>
+                        <field name="turn_day"/>
                         <field name="category"/>
                         <field name="emp_code"/>
                         <field name="emp_rfid"/>
                         <field name="emp_psw"/>
-		    <!--<button name="saveUser" string="Save user" type="object" class="oe_highlight"/>-->
-
                     </group>
                     </page>
-                  </notebook>
+                  </xpath>
             </field>
        </record>
     </data>
