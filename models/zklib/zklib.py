@@ -80,8 +80,9 @@ class ZKLib:
                                 command_string):
         """This function puts a the parts that make up a packet together and 
         packs them into a byte string"""
+        a =pack('HHHH', command, chksum,session_id, reply_id)
         buf = pack('HHHH', command, chksum,
-            session_id, reply_id) + command_string
+            session_id, reply_id) + command_string.encode('utf-8')
         
         buf = unpack('8B'+'%sB' % len(command_string), buf)
         
@@ -92,7 +93,7 @@ class ZKLib:
             reply_id -= USHRT_MAX
 
         buf = pack('HHHH', command, chksum, session_id, reply_id)
-        return buf + command_string
+        return buf + command_string.encode('utf-8')
     
     
     def checkValid(self, reply):
